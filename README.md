@@ -20,6 +20,9 @@ RabbitMQ uses AMQP 0.9.1 as its basis.
 
 > 7b. what it means? **guest:guest@localhost:5672**, what is the first quest, and what is the second guest, and what is localhost:5672 is for?
 
+Based on [RabbitMQ URI scheme](https://www.rabbitmq.com/docs/uri-spec#the-amqp-uri-scheme), 
 - The first and second "guest" refers to the username and password respectively,
 which is used to authenticate clients to the RabbitMQ service.
 - `localhost:5672` is the IP address and port that RabbitMQ listens to by default.
+
+This means that `guest:guest@localhost:5672` is connected to the RabbitMQ message broker securely using authentication.
