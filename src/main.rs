@@ -22,7 +22,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 
 fn main() {
     let subscriber =
-        CrosstownBus::new_subscriber("amqp://guest:guest@localhost:5672".to_owned()).unwrap();
+        CrosstownBus::new_queue_listener("amqp://guest:guest@localhost:5672".to_owned()).unwrap();
     _ = subscriber.subscribe(
             "user_created".to_owned(),
             UserCreatedHandler{},
