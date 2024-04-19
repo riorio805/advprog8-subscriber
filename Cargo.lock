@@ -276,9 +276,9 @@ checksum = "248e3bacc7dc6baa3b21e405ee045c3047101a49145e7e9eca583ab4c2ca5345"
 
 [[package]]
 name = "crosstown_bus"
-version = "0.8.1"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f8db78edaf248076dd77292f7c7ff86051f065e699e78ea2e956747a9a6280d"
+checksum = "c57f7b537e11029064064dd7be9be52e2f3d012e5f2eb3d7e7765ff389ce2ba3"
 dependencies = [
  "amiquip",
  "borsh",

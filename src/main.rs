@@ -30,7 +30,6 @@ fn main() {
                 auto_delete: false,
                 durable: false,
                 use_dead_letter: true,
-                consume_queue_name: Some("queue2".to_string()),
             });
 
     loop {
