@@ -26,3 +26,24 @@ which is used to authenticate clients to the RabbitMQ service.
 - `localhost:5672` is the IP address and port that RabbitMQ listens to by default.
 
 This means that `guest:guest@localhost:5672` is connected to the RabbitMQ message broker securely using authentication.
+
+
+### slow mo
+![Simulation of slow subscriber](slowmo.png)
+In this case, I send 25 messages.
+
+At first, the Total amount of queued messages goes up fast (average of 5/s (25 messages in 5 seconds) - 1/s (subscriber throughput) = 4/s) until the Publisher stops sending messages.
+Then it goes down by 1/s (subscriber throughput) until it goes through all the messages.
+
+
+### multi subscriber
+![terminal setup screenshot](multi-terminal.png)
+![rabbitmq screenshot](multi-rmq.png)
+In this case, I send 25 messages, with 3 subscriber programs (see connections in rabbitmq)
+
+As before, the queued message goes up fast, but because of the 3 subscriber programs, it goes down relatively quickly.
+In this example, it goes up by 5 - 3 = 2/s (5/s from before, 3/s from 3*1/s subscriber throughput).
+Then, after all the messages are queued, it goes down by 3/s (subscriber throughput).
+This is faster than the previous example, because the multiple machines are able to process the messages in parallel to each other, making it an example of horizontal scaling.
+
+There is more that can be done, which is implementing multithreading in the `handle` function in the subscriber program, which is able to improve throughput as seen in [Tutorial 6](https://github.com/riorio805/rust-shoppers).
